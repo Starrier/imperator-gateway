@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: imperatpr-gateway
+  cloud:
+    gateway:
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedMethods: "*"
+      locator:
+        enabled: true
+      routes:
+        - id: imperator-article
+          uri: lb://service-article
+          predicates:
+            - Path=/article/**
+        - id: imperator-user
+          uri: lb://service-user
+          predicates:
+            - Path=/user/**
+      discovery:
+        locator:
+          lower-case-service-id: true
+
