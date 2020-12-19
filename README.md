@@ -1,3 +1,5 @@
+[![Build Status](https://www.travis-ci.org/Starrier/imperator-gateway.svg?branch=master)](https://www.travis-ci.org/Starrier/imperator-gateway)
+
 全局性流控
 
 负载均衡
