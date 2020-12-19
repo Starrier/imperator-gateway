@@ -1,7 +1,6 @@
 package org.starrier.imperator.config;
 
 import com.google.common.collect.Maps;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.Ordered;
@@ -11,7 +10,6 @@ import org.springframework.web.reactive.socket.WebSocketHandler;
 import org.springframework.web.reactive.socket.server.support.WebSocketHandlerAdapter;
 import org.starrier.imperator.commponet.EchoHandler;
 
-import java.util.HashMap;
 import java.util.Map;
 
 /**

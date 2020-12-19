@@ -7,7 +7,6 @@ import org.springframework.cloud.gateway.route.RouteDefinitionRepository;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-import java.util.LinkedHashMap;
 import java.util.Map;
 
 import static java.util.Collections.synchronizedMap;
@@ -17,7 +16,7 @@ import static java.util.Collections.synchronizedMap;
  * @date 2019/4/14
  */
 
-public class UnifiedRouteRepositoryImpl implements  RouteDefinitionRepository {
+public class UnifiedRouteRepositoryImpl implements RouteDefinitionRepository {
 
     private final Map<String, RouteDefinition> routes = synchronizedMap(Maps.newLinkedHashMap());
 
@@ -35,9 +34,6 @@ public class UnifiedRouteRepositoryImpl implements  RouteDefinitionRepository {
     public Mono<Void> delete(Mono<String> routeId) {
         return null;
     }
-
-
-
 
 
 }

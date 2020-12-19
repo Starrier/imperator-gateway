@@ -37,60 +37,6 @@ public class DynamicRouteServiceImpl implements ApplicationEventPublisherAware {
         this.routeDefinitionWriter = routeDefinitionWriter;
     }
 
-
-    /**
-     * Add routes.
-     *
-     * @param definition {@link RouteDefinition}
-     * @return Result message
-     */
-    public String add(RouteDefinition definition) {
-        routeDefinitionWriter.save(Mono.just(definition)).subscribe();
-        this.publisher.publishEvent(new RefreshRoutesEvent(this));
-        return "success";
-    }
-
-
-    /**
-     * Update routes.
-     *
-     * @param definition {@link RouteDefinition}
-     * @return
-     */
-    public String update(RouteDefinition definition) {
-        try {
-            this.routeDefinitionWriter.delete(Mono.just(definition.getId()));
-        } catch (Exception e) {
-            return "update fail,not find route  routeId: " + definition.getId();
-        }
-        try {
-            routeDefinitionWriter.save(Mono.just(definition)).subscribe();
-            this.publisher.publishEvent(new RefreshRoutesEvent(this));
-            return "success";
-        } catch (Exception e) {
-            return "update route  fail";
-        }
-
-
-    }
-
-    /**
-     * Delete rotues.
-     *
-     * @param id
-     * @return
-     */
-    @SneakyThrows(Exception.class)
-    public String delete(String id) {
-        this.routeDefinitionWriter.delete(Mono.just(id));
-        return "delete success";
-    }
-
-    @Override
-    public void setApplicationEventPublisher(ApplicationEventPublisher applicationEventPublisher) {
-        this.publisher = applicationEventPublisher;
-    }
-
     /**
      * spring:
      * cloud:
@@ -131,6 +77,58 @@ public class DynamicRouteServiceImpl implements ApplicationEventPublisherAware {
         definition1.setUri(uri1);
         System.out.println("definition1：" + JSON.toJSONString(definition1));
 
+    }
+
+    /**
+     * Add routes.
+     *
+     * @param definition {@link RouteDefinition}
+     * @return Result message
+     */
+    public String add(RouteDefinition definition) {
+        routeDefinitionWriter.save(Mono.just(definition)).subscribe();
+        this.publisher.publishEvent(new RefreshRoutesEvent(this));
+        return "success";
+    }
+
+    /**
+     * Update routes.
+     *
+     * @param definition {@link RouteDefinition}
+     * @return
+     */
+    public String update(RouteDefinition definition) {
+        try {
+            this.routeDefinitionWriter.delete(Mono.just(definition.getId()));
+        } catch (Exception e) {
+            return "update fail,not find route  routeId: " + definition.getId();
+        }
+        try {
+            routeDefinitionWriter.save(Mono.just(definition)).subscribe();
+            this.publisher.publishEvent(new RefreshRoutesEvent(this));
+            return "success";
+        } catch (Exception e) {
+            return "update route  fail";
+        }
+
+
+    }
+
+    /**
+     * Delete rotues.
+     *
+     * @param id
+     * @return
+     */
+    @SneakyThrows(Exception.class)
+    public String delete(String id) {
+        this.routeDefinitionWriter.delete(Mono.just(id));
+        return "delete success";
+    }
+
+    @Override
+    public void setApplicationEventPublisher(ApplicationEventPublisher applicationEventPublisher) {
+        this.publisher = applicationEventPublisher;
     }
 
 

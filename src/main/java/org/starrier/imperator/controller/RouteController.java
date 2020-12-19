@@ -19,7 +19,6 @@ import org.starrier.imperator.model.GatewayRouteDefinition;
 import org.starrier.imperator.route.DynamicRouteServiceImpl;
 
 import java.net.URI;
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -41,6 +40,7 @@ public class RouteController {
     public String findAll() {
         return null;
     }
+
     /**
      * Add router.
      *
