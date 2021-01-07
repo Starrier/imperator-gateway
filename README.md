@@ -1,31 +1,34 @@
 # Imperator Gateway
 
 ![LICENSE](https://img.shields.io/github/license/Starrier/imperator-gateway)
-
 [![Build Status](https://www.travis-ci.org/Starrier/imperator-gateway.svg?branch=master)](https://www.travis-ci.org/Starrier/imperator-gateway)
-
 [![Maintainability](https://api.codeclimate.com/v1/badges/70c48a9d62bb0a126934/maintainability)](https://codeclimate.com/github/Starrier/imperator-gateway/maintainability)
 
 > [Docker Image Link](https://hub.docker.com/repository/docker/starrier/gateway-dev)
 
-全局性流控
+## 功能
+> Features
 
-负载均衡
+### 1. 全局性流控
 
-动态路由
+### 2. 负载均衡
 
-访问控制
+### 3. 动态路由
 
-权限校验
+### 4. 访问控制
 
-限流熔断
+### 5. 权限校验
 
-埋点监控
+### 6. 限流熔断
 
-日志收集统计
+### 7. 埋点监控
 
-A|B测试
+### 8. 日志收集统计
 
-安全
+### 9. A|B测试
 
-黑白名单控制
+### 10. 安全
+
+### 11. 黑白名单控制
+
+风控接口，只有不在黑名单中的 ip 地址才可以访问。
