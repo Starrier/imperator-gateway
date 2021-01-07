@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 import org.starrier.imperator.model.GatewayPredicateDefinition;
 import org.starrier.imperator.model.GatewayRouteDefinition;
-import org.starrier.imperator.route.DynamicRouteServiceImpl;
+import org.starrier.imperator.route.RouteRepresentApplication;
 
 import java.net.URI;
 import java.util.List;
@@ -30,9 +30,9 @@ import java.util.List;
 @RequestMapping("/api/v1/router")
 public class RouteController {
 
-    private final DynamicRouteServiceImpl dynamicRouteService;
+    private final RouteRepresentApplication dynamicRouteService;
 
-    public RouteController(DynamicRouteServiceImpl dynamicRouteService) {
+    public RouteController(RouteRepresentApplication dynamicRouteService) {
         this.dynamicRouteService = dynamicRouteService;
     }
 
